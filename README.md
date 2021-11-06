@@ -13,5 +13,6 @@
 	void _puts(char *str);
 # Pour Print pourcent
 	_putchar('%');
+# Faire des Get pour les fonction non Void
 
 
