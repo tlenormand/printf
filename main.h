@@ -5,8 +5,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+/* Function */
 
 int _putchar(char c);
 void _puts(char *str);
 
- #endif /* MAIN_H */
+/* GET FUNCTION */
+
+
+#endif /* MAIN_H */
