@@ -8,6 +8,8 @@
     va_end (man 3 va_end)
     va_copy (man 3 va_copy)
     va_arg (man 3 va_arg)
-## ############################# ##
-## ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ##
-## ############################# ##
+# Function Utile Create
+	print character()
+	print_string()
+	print_percent()
+
