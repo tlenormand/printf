@@ -9,8 +9,9 @@
     va_copy (man 3 va_copy)
     va_arg (man 3 va_arg)
 # Function Utile Create
-	print character()
-	print_string()
+	int _putchar(char c);
+	void _puts(char *str);
 # Pour Print pourcent
 	_putchar('%');
+
 
