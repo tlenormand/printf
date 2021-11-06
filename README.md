@@ -11,5 +11,6 @@
 # Function Utile Create
 	print character()
 	print_string()
-	print_percent()
+# Pour Print pourcent
+	_putchar('%');
 
