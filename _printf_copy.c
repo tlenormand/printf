@@ -20,7 +20,7 @@
  * Return: print string
  */
 
-int _printf(const char * const format,&search_type_t format_of_char, ...)
+int _printf(const char * const format, ...)
 {
 
 	int index1 = 0, index2 = 0;
