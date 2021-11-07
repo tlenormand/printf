@@ -20,6 +20,7 @@ int _printf(const char * const format, ...)
 		{"u", _get_unsigned_decimal_integer},
 		{"x", _get_unsigned_hexadecimal_lowercase},
 		{"X", _get_unsigned_hexadecimal_uppercase},
+		{"S", _get_string_conversion},
 		{NULL, NULL}
 	};
 	int index1 = 0, index2 = 0;

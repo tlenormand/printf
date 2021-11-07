@@ -1,6 +1,5 @@
-#include <limits.h>
 #include <stdio.h>
-#include "/home/vagrant/holbertonschool-low_level_programming/0x11-printf/main.h"
+#include "/home/vagrant/printf/main.h"
 
 /**
  * main - Entry point
@@ -40,6 +39,11 @@ int main(void)
 
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
+
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+
+    _printf("%S\n", "Best\nSchool");
 
     return (0);
 }
