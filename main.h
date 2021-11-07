@@ -39,5 +39,7 @@ void _get_unsigned_decimal_integer(va_list args);
 void _print_integer(int d);
 void _print_binary(unsigned int b);
 void _print_octal(unsigned int o);
+void _print_unsigned_integer(int d);
+void _print_unsigned_decimal_integer(unsigned int ui);
 
 #endif /* MAIN_H */
