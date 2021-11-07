@@ -34,6 +34,8 @@ void _get_binary(va_list args);
 void _get_percent(va_list args);
 void _get_octal(va_list args);
 void _get_unsigned_decimal_integer(va_list args);
+void _get_unsigned_hexadecimal_lowercase(va_list args);
+void _get_unsigned_hexadecimal_uppercase(va_list args);
 
 	/*print function*/
 void _print_integer(int d);
@@ -41,5 +43,7 @@ void _print_binary(unsigned int b);
 void _print_octal(unsigned int o);
 void _print_unsigned_integer(int d);
 void _print_unsigned_decimal_integer(unsigned int ui);
+void _print_unsigned_hexadecimal_lowercase(unsigned int x);
+void _print_unsigned_hexadecimal_uppercase(unsigned int X);
 
 #endif /* MAIN_H */

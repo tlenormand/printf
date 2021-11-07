@@ -18,6 +18,8 @@ int _printf(const char * const format, ...)
 		{"%%", _get_percent},
 		{"o", _get_octal},
 		{"u", _get_unsigned_decimal_integer},
+		{"x", _get_unsigned_hexadecimal_lowercase},
+		{"X", _get_unsigned_hexadecimal_uppercase},
 		{NULL, NULL}
 	};
 	int index1 = 0, index2 = 0;
