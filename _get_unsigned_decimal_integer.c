@@ -7,7 +7,5 @@
 
 void _get_unsigned_decimal_integer(va_list args)
 {
-	unsigned int ui = va_arg(args, int);
-
-	_print_unsigned_decimal_integer(ui);
+	_print_unsigned_decimal_integer(va_arg(args, unsigned int));
 }
