@@ -37,6 +37,7 @@ void _get_unsigned_decimal_integer(va_list args);
 void _get_unsigned_hexadecimal_lowercase(va_list args);
 void _get_unsigned_hexadecimal_uppercase(va_list args);
 void _get_string_conversion(va_list args);
+void _get_pointer(va_list args);
 
 	/*print function*/
 void _print_integer(int d);
