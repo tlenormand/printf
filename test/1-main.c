@@ -14,6 +14,9 @@ int main(void)
     int d = 123456789;
     unsigned int ui;
     int len2;
+    void *addr;
+
+    addr = (void *)0x7ffe637541f0;
 
     len2 = _printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
@@ -44,6 +47,10 @@ int main(void)
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 
     _printf("%S\n", "Best\nSchool");
+
+    _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
+
 
     return (0);
 }
