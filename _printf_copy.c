@@ -1,7 +1,16 @@
 #include "main.h"
 #include <stdio.h>
 
-	search_type_t format_of_char[] = {
+
+/**
+ * _printf - function that prints anything
+ * @format: format of the string to print
+ * Return: print string
+ */
+
+int _printf(const char * const format, ...)
+{
+		search_type_t format_of_char[] = {
 		{"c", _get_char},
 		{"s", _get_string},
 		{"d", _get_integer},
@@ -14,17 +23,14 @@
 		{"X", _get_unsigned_hexadecimal_uppercase},
 		{NULL, NULL}
 	};
-/**
- * _printf - function that prints anything
- * @format: format of the string to print
- * Return: print string
- */
-
-int _printf(const char * const format, ...)
-{
 
 	int index1 = 0, index2 = 0;
-	va_list args;
+	int printfbis(format,  format_of_char, va_list args)
+	return (0);
+}
+ int printfbis(const char * const format, search_type_t format_of_char[],va_list args)
+ {
+	int index1 = 0, index2 = 0;
 
 	va_start(args, format);
 
@@ -55,4 +61,4 @@ int _printf(const char * const format, ...)
 	}
 	va_end(args);
 	return (0);
-}
+ }
