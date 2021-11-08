@@ -15,15 +15,23 @@ int main(void)
     unsigned int ui;
     int len2;
     void *addr;
+    int nombre = 123;
 
     addr = (void *)0x7ffe637541f0;
 
     len2 = _printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
 
-    _printf("Let's try to printf a simple sentence.\n");
+/*test the simple sentence*/
+    _printf("Let's try to printf %% a simple sentence.\n");
     printf("Let's try to printf a simple sentence.\n");
+    _printf("vtbh;v!jkj!:*;,^$rg'thçé_oi&éz\n");
+    printf("vtbh;v!jkj!:*;,^$rg'thçé_oi&éz\n");
 
+/*test the string*/
+    _printf("%s", str);
+    printf("%s", str);
+    str = "vtbh;v!jkj!:*;,^$r4656g'thçé_oi&éz\n";
     _printf("%s", str);
     printf("%s", str);
 
@@ -50,6 +58,11 @@ int main(void)
 
     _printf("Address:[%p]\n", addr);
     printf("Address:[%p]\n", addr);
+
+    printf("c'est%+7dça\n", nombre);
+
+    _printf("Unknown:[%r]\n");
+
 
 
     return (0);
