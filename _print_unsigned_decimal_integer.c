@@ -3,11 +3,16 @@
 /**
  * _print_unsigned_decimal_integer - print unsigned integer given
  * @ui: unsigned integer to print
+ * Return: lenght of character printed
  */
 
-void _print_unsigned_decimal_integer(unsigned int ui)
+int _print_unsigned_decimal_integer(unsigned int ui)
 {
+	int lenght = 0;
+
 	if (ui / 10)
 		_print_unsigned_decimal_integer(ui / 10);
-	_putchar(ui % 10 + '0');
+	_putchar(ui % 10 + '0'), lenght++;
+
+	return (lenght);
 }

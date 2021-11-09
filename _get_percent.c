@@ -4,9 +4,12 @@
  * _get_percent - get the percent from _printf %%
  * print a %
  * @args: argument corresponding to %%
+ * Return: lenght of character printed
  */
 
-void _get_percent(va_list args)
+int _get_percent(va_list args)
 {
 	_putchar(va_arg(args, int));
+
+	return (1);
 }
