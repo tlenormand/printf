@@ -19,7 +19,7 @@ typedef struct search_type
 
 
 
-
+typedef void (*func_t)(va_list);
 
 /**
  * struct op - Struct op
