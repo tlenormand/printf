@@ -8,5 +8,8 @@
 
 void _get_octal(va_list args)
 {
-	_print_octal(va_arg(args, unsigned int));
+	unsigned int o = va_arg(args, unsigned int);
+	if (o != 0)
+		_print_octal(o);
+	else	_putchar('0');
 }

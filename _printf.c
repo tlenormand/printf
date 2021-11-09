@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 /**
- * _printf - function that prints anything
- * @format: format of the string to print
- * Return: print string
+ * search_format_of_char - *function check if s exist and return the function
+ * @s: charactere to check
+ * Return: function associated, 1 if not
  */
 
-int _printf(const char * const format, ...)
+void (*search_format_of_char(char s))(va_list)
 {
 	search_type_t format_of_char[] = {
 		{"c", _get_char},
@@ -15,15 +15,47 @@ int _printf(const char * const format, ...)
 		{"d", _get_integer},
 		{"i", _get_integer},
 		{"b", _get_binary},
-		{"%%", _get_percent},
+		{"%", _get_percent},
 		{"o", _get_octal},
 		{"u", _get_unsigned_decimal_integer},
 		{"x", _get_unsigned_hexadecimal_lowercase},
 		{"X", _get_unsigned_hexadecimal_uppercase},
 		{"S", _get_string_conversion},
+		{"p", _get_pointer},
+		/*{"+", },
+		{"#", },
+		{" ", },
+		{"0", },
+		{"-", },
+		{"r", },
+		{"R", },*/
 		{NULL, NULL}
 	};
-	int index1 = 0, index2 = 0;
+	int i = 0;
+
+	while (format_of_char[i].type != NULL)
+	{
+		if (format_of_char[i].type[0] == s)
+		{
+			return (format_of_char[i].f);
+		}
+		i++;
+	}
+	_putchar('%');
+	_putchar(s);
+
+	return (0);
+}
+
+/**
+ * _printf - function that prints anything
+ * @format: format of the string to print
+ * Return: print string
+ */
+
+int _printf(const char * const format, ...)
+{
+	int index1 = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -38,21 +70,14 @@ int _printf(const char * const format, ...)
 			else
 			{
 				index1++;
-				while (format_of_char[index2].type)
-				{
-					if (format[index1] == format_of_char[index2].type[0])
-					{
-						format_of_char[index2].f(args);
-					}
-					index2++;
-				}
+				search_format_of_char(format[index1])(args);
 			}
 		}
 		else
 			_putchar(format[index1]);
 		index1++;
-		index2 = 0;
 	}
 	va_end(args);
+
 	return (0);
 }
