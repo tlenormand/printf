@@ -8,5 +8,9 @@
 
 void _get_binary(va_list args)
 {
-	_print_binary(va_arg(args, int));
+	unsigned int b = va_arg(args, int);
+	if (b != 0)
+		_print_binary(b);
+	else
+		_putchar('0');
 }
