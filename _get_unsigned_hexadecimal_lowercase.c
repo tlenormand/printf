@@ -7,5 +7,9 @@
 
 void _get_unsigned_hexadecimal_lowercase(va_list args)
 {
-	_print_unsigned_hexadecimal_lowercase(va_arg(args, unsigned int));
+	unsigned int x = va_arg(args, unsigned int);
+	if (x != 0)
+		_print_unsigned_hexadecimal_lowercase(x);
+	else
+		_putchar('0');
 }
