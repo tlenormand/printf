@@ -31,6 +31,9 @@ int main(void)
     printf("Let's try to printf a simple sentence.\n");
     _printf("vtbh;v!jkj!:*;,^$rg'thçé_oi&éz\n");
     printf("vtbh;v!jkj!:*;,^$rg'thçé_oi&éz\n");
+    len = _printf("Percent:[%]\n");
+    len2 = _printf("Percent:[%]\n");
+
 
 /*test the string %s*/
     _printf("%s", str);
@@ -152,6 +155,28 @@ int main(void)
     printf("c'est%-12dça\n", -1);*/
 
     _printf("Unknown:[%r]\n");
+
+
+
+
+/*test the integer %d and %i*/
+    _printf("Length:[%d, %i]\n", len2, len2);
+    printf("Length:[%d, %i]\n", len2, len2);
+    _printf("%i\n", d);
+    printf("%i\n", d);
+    len = _printf("%i\n", d);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len, len);
+    _printf("%i\n", len2);
+    printf("%i\n", len2);
+    _printf("%i, %d\n", -d, -d);
+    printf("%i, %d\n", -d, -d);
+    _printf("Length:[%d, %i]\n", INT_MAX, INT_MAX );
+    printf("Length:[%d, %i]\n", INT_MAX, INT_MAX );
+    _printf("Length:[%d, %i]\n", INT_MIN, INT_MIN);
+    printf("Length:[%d, %i]\n", INT_MIN, INT_MIN);
+    _printf("Length:[%d, %i]\n", -348, -348);
+    printf("Length:[%d, %i]\n", -348, -348);
 
 
 
