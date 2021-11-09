@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 
+
 /**
  * search_format_of_char - *function check if s exist and return the function
  * @s: charactere to check
@@ -22,11 +23,11 @@ void (*search_format_of_char(char s))(va_list)
 		{"X", _get_unsigned_hexadecimal_uppercase},
 		{"S", _get_string_conversion},
 		{"p", _get_pointer},
-		/*{"+", },
-		{"#", },
+		/*{"+", _get_flag_plus},
+		{"-", _get_flag_minus},
 		{" ", },
 		{"0", },
-		{"-", },
+		{"#", },
 		{"r", },
 		{"R", },*/
 		{NULL, NULL}
@@ -44,7 +45,7 @@ void (*search_format_of_char(char s))(va_list)
 	_putchar('%');
 	_putchar(s);
 
-	return (0);
+	return (NULL);
 }
 
 /**
@@ -55,7 +56,9 @@ void (*search_format_of_char(char s))(va_list)
 
 int _printf(const char * const format, ...)
 {
-	int index1 = 0;
+	int index1 = 0, i;
+	char charactere[] = "csdib%ouxXSp";
+	/*char flag[] = "+-";*/
 	va_list args;
 
 	va_start(args, format);
@@ -70,6 +73,9 @@ int _printf(const char * const format, ...)
 			else
 			{
 				index1++;
+				/*index1 = get_flag(format[index1])(*format, index1);*/
+				for (i = 0; charactere[i]; i++)
+					if (charactere[i] == format[i])
 				search_format_of_char(format[index1])(args);
 			}
 		}
@@ -79,5 +85,34 @@ int _printf(const char * const format, ...)
 	}
 	va_end(args);
 
+	return (index1);
+}
+/*
+
+int (*get_flag(char s))(char, int)
+{
+	flag_t flag[] = {
+		{"+", _get_flag_plus},
+		{"-", _get_flag_plus},
+		{NULL, NULL}
+	};
+	int i = 0;
+	int index1 = 0;
+
+	while (flag[i].flag_sign != NULL)
+	{
+		if (flag[i].flag_sign[0] == s)
+		{
+			index1 = flag[i].function_flag;
+		}
+		i++;
+	}
 	return (0);
 }
+*//*
+int _get_flag_plus(char *format, int index1)
+{
+	while (format[index1] > 47 && format[index1] < 58)
+		_putchar(format[index1]), index1++;
+	return (index1);
+}*/

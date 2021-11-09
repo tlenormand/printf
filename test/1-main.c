@@ -125,7 +125,14 @@ int main(void)
     _printf("Address:[%p]\n", addr);
     printf("Address:[%p]\n", addr);
 
+/*test the flag + and -*/
     printf("c'est%+7dça\n", nombre);
+  /*  _printf("c'est%+7dça\n", nombre);
+    printf("c'est%-7dça\n", nombre);
+    printf("c'est%+12dça\n", 1);
+    printf("c'est%+12dça\n", -1);
+    printf("c'est%-12dça\n", 1);
+    printf("c'est%-12dça\n", -1);*/
 
     _printf("Unknown:[%r]\n");
 

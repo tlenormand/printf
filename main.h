@@ -18,6 +18,32 @@ typedef struct search_type
 } search_type_t;
 
 
+
+
+
+/**
+ * struct op - Struct op
+ *
+ * @op: The operator
+ * @f: The function associated
+ */
+typedef struct flag
+{
+	char *flag_sign;
+	int (*function_flag)(char *format, int index1);
+} flag_t;
+
+
+
+
+int (*get_flag(char s))(char, int);
+int _get_flag_plus(char *format, int index1);
+
+
+
+
+
+
 /*FUNCTION ALREADY EXIST*/
 int _putchar(char c);
 
