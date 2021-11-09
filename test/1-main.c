@@ -177,6 +177,12 @@ int main(void)
     printf("Length:[%d, %i]\n", INT_MIN, INT_MIN);
     _printf("Length:[%d, %i]\n", -348, -348);
     printf("Length:[%d, %i]\n", -348, -348);
+    len = printf("Length:[%d, %i]\n", INT_MIN, INT_MIN);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len, len);
+    _printf("Length:[%d, %i]\n", -1, -34);
+    printf("Length:[%d, %i]\n", -1, -34);
+
 
 
 

@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _print_integer - print integer given
@@ -10,24 +9,39 @@
 int _print_integer(int d)
 {
 	int lenght = 0;
-	int size = 1;
-	int cpt = d;
+	unsigned int i = 0;
+	unsigned int number_in_n;
+	unsigned int j = 1;
 
-	while (cpt > 9 || cpt < -9)
+	if (d == 0)
 	{
-		cpt = cpt / 10;
-		size *= 10;
+		_putchar('0');
+		lenght++;
 	}
-	if (d < 0)
-		_putchar('-'), lenght++;
-	while (size != 0)
+	else
 	{
-		if (d > 0)
-			_putchar(((d / size) % 10) + '0'), lenght++;
-		else
-			_putchar((((d / size) % 10) * -1) + '0'), lenght++;
-		size /= 10;
+		if (d < 0)
+		{
+			_putchar('-'), d = d * (-1);
+			lenght++;
+		}
+		number_in_n = d;
+		while (number_in_n > 0)
+		{
+			i++;
+			number_in_n = number_in_n / 10;
+		}
+		while (i > 1)
+		{
+			j = j * 10;
+			i--;
+		}
+		while (j > 0)
+		{
+			_putchar((d / j) % 10 + '0');
+			lenght++;
+			j = j / 10;
+		}
 	}
-
 	return (lenght);
 }
