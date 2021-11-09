@@ -5,7 +5,6 @@
 #include <stdarg.h>
 #include <limits.h>
 
-
 /**
  * struct search_type - struct format
  * @type: the format of the char
@@ -26,6 +25,8 @@ int _putchar(char c);
 int _printf(const char * const format, ...);
 
 /*FUNCTION CREATE IN THE EXERCICE*/
+void (*search_format_of_char(char s))(va_list);
+
 	/*get function*/
 void _get_char(va_list args);
 void _get_string(va_list args);
@@ -37,6 +38,7 @@ void _get_unsigned_decimal_integer(va_list args);
 void _get_unsigned_hexadecimal_lowercase(va_list args);
 void _get_unsigned_hexadecimal_uppercase(va_list args);
 void _get_string_conversion(va_list args);
+void _get_pointer(va_list args);
 
 	/*print function*/
 void _print_integer(int d);
