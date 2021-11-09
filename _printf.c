@@ -27,15 +27,9 @@ int (*search_format_of_char(const char *format))(va_list)
 	};
 	int i = 0;
 
-	while (format_of_char[i].type != NULL)
-	{
+	for (;format_of_char[i].type != NULL; i++)
 		if (format_of_char[i].type[0] == *format)
-		{
 			return (format_of_char[i].f);
-		}
-		i++;
-	}
-
 	return (0);
 }
 
@@ -47,33 +41,30 @@ int (*search_format_of_char(const char *format))(va_list)
 
 int _printf(const char * const format, ...)
 {
-	int index1 = 0, lenght = 0;
+	int i = 0, lenght = 0;
 	int (*pointed_function)(va_list);
 	va_list args;
 
 	va_start(args, format);
 
-	while (format && format[index1])
+	for (;format && format[i]; i++)
 	{
-		if (format[index1] == '%')
+		if (format[i] == '%')
 		{
-			if (format[index1 + 1] == '%')
-				_putchar(37), index1++, lenght++;
+			if (format[i + 1] == '%')
+				_putchar(37), i++, lenght++;
 			else
 			{
-				index1++;
-				pointed_function = search_format_of_char(format + index1);
+				i++;
+				pointed_function = search_format_of_char(format + i);
 				if (pointed_function != NULL)
 					lenght += pointed_function(args);
 				else
-				{
-					_putchar('%'), _putchar(format[index1]), lenght += 2;
-				}
+					_putchar('%'), _putchar(format[i]), lenght += 2;
 			}
 		}
 		else
-			_putchar(format[index1]), lenght++;
-		index1++;
+			_putchar(format[i]), lenght++;
 	}
 	va_end(args);
 	return (lenght);
