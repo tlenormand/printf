@@ -3,16 +3,21 @@
 /**
  * _print_integer - print integer given
  * @d: integer to print
+ * Return: lenght of character printed
  */
 
-void _print_integer(int d)
+int _print_integer(int d)
 {
+	int lenght = 0;
+
 	if (d < 0)
 	{
-		_putchar('-');
+		_putchar('-'), lenght++;
 		d *= -1;
 	}
 	if (d / 10)
 		_print_integer(d / 10);
-	_putchar(d % 10 + '0');
+	_putchar(d % 10 + '0'), lenght++;
+
+	return (lenght);
 }

@@ -4,10 +4,12 @@
  * _get_pointer - get the adress from _printf %p
  * then print the adress
  * @args: argument corresponding to %p
+ * Return: lenght of character printed
  */
 
-void _get_pointer(va_list args)
+int _get_pointer(va_list args)
 {
+	int lenght = 0;
 	void *p = (va_arg(args, void *));
 	intptr_t x = (intptr_t)p;
 	char buf[2 + sizeof(x) * 2];
@@ -25,6 +27,8 @@ void _get_pointer(va_list args)
 		if (i == 2 && buf[i] == '0')
 			while (buf[i] == '0')
 				i++;
-		_putchar(buf[i]);
+		_putchar(buf[i]), lenght++;
 	}
+
+	return (lenght);
 }

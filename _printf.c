@@ -3,12 +3,12 @@
 
 
 /**
- * search_format_of_char - *function check if s exist and return the function
- * @s: charactere to check
- * Return: function associated, 1 if not
+ * search_format_of_char - *function check if format exist, return the function
+ * @format: charactere to check
+ * Return: lenght of charactere printed or function if find
  */
 
-void (*search_format_of_char(char s))(va_list)
+int (*search_format_of_char(const char *format))(va_list)
 {
 	search_type_t format_of_char[] = {
 		{"c", _get_char},
@@ -23,29 +23,20 @@ void (*search_format_of_char(char s))(va_list)
 		{"X", _get_unsigned_hexadecimal_uppercase},
 		{"S", _get_string_conversion},
 		{"p", _get_pointer},
-		/*{"+", _get_flag_plus},
-		{"-", _get_flag_minus},
-		{" ", },
-		{"0", },
-		{"#", },
-		{"r", },
-		{"R", },*/
 		{NULL, NULL}
 	};
 	int i = 0;
 
 	while (format_of_char[i].type != NULL)
 	{
-		if (format_of_char[i].type[0] == s)
+		if (format_of_char[i].type[0] == *format)
 		{
 			return (format_of_char[i].f);
 		}
 		i++;
 	}
-	_putchar('%');
-	_putchar(s);
 
-	return (NULL);
+	return (0);
 }
 
 /**
@@ -56,9 +47,8 @@ void (*search_format_of_char(char s))(va_list)
 
 int _printf(const char * const format, ...)
 {
-	int index1 = 0, i;
-	char charactere[] = "csdib%ouxXSp";
-	/*char flag[] = "+-";*/
+	int index1 = 0, lenght = 0;
+	int (*pointed_function)(va_list);
 	va_list args;
 
 	va_start(args, format);
@@ -67,52 +57,24 @@ int _printf(const char * const format, ...)
 	{
 		if (format[index1] == '%')
 		{
-			/* check if double % -> print single %*/
 			if (format[index1 + 1] == '%')
-				_putchar(37), index1++;
+				_putchar(37), index1++, lenght++;
 			else
 			{
 				index1++;
-				/*index1 = get_flag(format[index1])(*format, index1);*/
-				for (i = 0; charactere[i]; i++)
-					if (charactere[i] == format[i])
-				search_format_of_char(format[index1])(args);
+				pointed_function = search_format_of_char(format + index1);
+				if (pointed_function != NULL)
+					lenght += pointed_function(args);
+				else
+				{
+					_putchar('%'), _putchar(format[index1]), lenght += 2;
+				}
 			}
 		}
 		else
-			_putchar(format[index1]);
+			_putchar(format[index1]), lenght++;
 		index1++;
 	}
 	va_end(args);
-
-	return (index1);
+	return (lenght);
 }
-/*
-
-int (*get_flag(char s))(char, int)
-{
-	flag_t flag[] = {
-		{"+", _get_flag_plus},
-		{"-", _get_flag_plus},
-		{NULL, NULL}
-	};
-	int i = 0;
-	int index1 = 0;
-
-	while (flag[i].flag_sign != NULL)
-	{
-		if (flag[i].flag_sign[0] == s)
-		{
-			index1 = flag[i].function_flag;
-		}
-		i++;
-	}
-	return (0);
-}
-*//*
-int _get_flag_plus(char *format, int index1)
-{
-	while (format[index1] > 47 && format[index1] < 58)
-		_putchar(format[index1]), index1++;
-	return (index1);
-}*/

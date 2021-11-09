@@ -24,6 +24,9 @@ int main(void)
     ui = (unsigned int)INT_MAX + 1024;
 
 /*test the simple sentence*/
+    len = _printf("Let's try to printf %% a simple sentence.\n");
+    printf("len = : %d, %i\n", len, len);
+    _printf("len = : %d, %i\n", len, len);
     _printf("Let's try to printf %% a simple sentence.\n");
     printf("Let's try to printf a simple sentence.\n");
     _printf("vtbh;v!jkj!:*;,^$rg'thçé_oi&éz\n");
@@ -36,12 +39,18 @@ int main(void)
     _printf("%s", str);
     printf("%s", str);
 
-    _printf("Length:[%d, %i]\n", len, len);
+/*test the integer %d and %i*/
+    _printf("Length:[%d, %i]\n", len2, len2);
     printf("Length:[%d, %i]\n", len2, len2);
     _printf("%i\n", d);
     printf("%i\n", d);
+    len = _printf("%i\n", d);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len, len);
     _printf("%i\n", len2);
     printf("%i\n", len2);
+    _printf("%i, %d\n", -d, -d);
+    printf("%i, %d\n", -d, -d);
 
 /*test the binary %b*/
     _printf("%b\n", 98);
@@ -66,6 +75,14 @@ int main(void)
     printf("Unsigned octal:[%o]\n", 98765456);
     _printf("Unsigned octal:[%o]\n", 2147483646);
     printf("Unsigned octal:[%o]\n", 2147483646);
+
+    printf("\n");
+    len = printf("Unsigned octal:[%o]\n", 2147483646);
+    len2 = printf("Unsigned octal:[%o]\n", 2147483646);
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    printf("\n");
+
     _printf("Unsigned octal:[%o]\n", 0);
     printf("Unsigned octal:[%o]\n", 0);
     _printf("Unsigned octal:[%o]\n", 1);

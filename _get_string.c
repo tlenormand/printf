@@ -3,12 +3,16 @@
 /**
  * _get_string - get the string from _printf %s
  * @args: argument corresponding to %s
+ * Return: lenght of character printed
  */
 
-void _get_string(va_list args)
+int _get_string(va_list args)
 {
+	int lenght = 0;
 	char *str = va_arg(args, char *);
 
 	while (*str)
-		_putchar(*str++);
+		_putchar(*str++), lenght++;
+
+	return (lenght);
 }
