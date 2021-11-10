@@ -23,6 +23,7 @@ int (*search_format_of_char(const char *format))(va_list)
 		{"S", _get_string_conversion},
 		{"p", _get_pointer},
 		{"r", _get_reverse},
+		{"R", _get_rot13},
 		{NULL, NULL}
 	};
 	int i = 0;
