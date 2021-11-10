@@ -22,6 +22,7 @@ int (*search_format_of_char(const char *format))(va_list)
 		{"X", _get_unsigned_hexadecimal_uppercase},
 		{"S", _get_string_conversion},
 		{"p", _get_pointer},
+		{"r", _get_reverse},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -47,7 +48,7 @@ int _printf(const char * const format, ...)
 
 	va_start(args, format);
 	if (!format)
-		return(-1);
+		return (-1);
 	for (; format && format[i]; i++)
 	{
 		if (format[i] == '%')

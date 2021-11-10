@@ -25,7 +25,7 @@ int _get_pointer(va_list args)
 			_putchar(str[j]);
 			lenght++;
 		}
-		return(lenght);
+		return (lenght);
 	}
 
 	buf[0] = '0';
