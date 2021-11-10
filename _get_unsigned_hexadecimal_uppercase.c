@@ -8,14 +8,15 @@
 
 int _get_unsigned_hexadecimal_uppercase(va_list args)
 {
+	int lenght = 0;
 	unsigned int X = va_arg(args, unsigned int);
 
 	if (X != 0)
 	{
-		return (_print_unsigned_hexadecimal_uppercase(X));
+		lenght += _print_unsigned_hexadecimal_uppercase(X);
 	}
 	else
-		_putchar('0');
+		_putchar('0'), lenght++;
 
-	return (1);
+	return (lenght);
 }

@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _print_unsigned_hexadecimal_uppercase - print unsigned hexadecimal given
@@ -12,7 +13,7 @@ int _print_unsigned_hexadecimal_uppercase(unsigned int X)
 
 	if (X)
 	{
-		_print_unsigned_hexadecimal_uppercase(X / 16);
+		lenght = _print_unsigned_hexadecimal_uppercase(X / 16);
 		if (X % 16 < 10)
 			_putchar('0' + X % 16), lenght++;
 		else
