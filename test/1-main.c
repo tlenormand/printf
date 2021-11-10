@@ -227,5 +227,16 @@ int main(void)
     len = _printf("%b\n", -6);
     printf("len : %d\n", len);
 
+
+/*test the string %s*/
+    str = "";
+    _printf("%s\n", str);
+    printf("%s\n", str);
+    str = "vtbh;v!jkj!:*;,^$r4656g'thçé_oi&éz\n";
+    len = _printf("bonjour%");
+    _printf("len : %d\n", len);
+
+
+
     return (0);
 }
