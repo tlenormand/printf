@@ -274,9 +274,20 @@ int main(void)
     len = _printf("%S\n", "(c");
     _printf("len : %d\n", len);
     _printf("%S\n", "Best'2'School\2\3\1\6\4\4\4\14\30\31\32\33\34\35\36\55");
-    _printf("%S\n", "Be\6st Sc\1hool");
+    _printf("%S\n", "Be\32st Sc\1hool");
     len = _printf("%S\n", (char *)0);
     _printf("len : %d\n", len);
+    len = _printf("chear:[%c]\n", '\0');
+    len2 = printf("chear:[%c]\n", '\0');
+    _printf("len : %d\n", len);
+    printf("len2 : %d\n", len2);
+
+    /* test address %p */
+    addr = (void *)0x0000000000000;
+	len2 = printf("Address:[%p]\n", addr);
+    len = _printf("Address:[%p]\n", addr);
+    _printf("len : %d\n", len);
+    printf("len2 : %d\n", len2);
 
     return (0);
 }
