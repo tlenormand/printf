@@ -15,12 +15,7 @@ int _get_rot13(va_list args)
 	char *rot_number = va_arg(args, char *);
 
 	if (rot_number == 0)
-	{
 		rot_number = "(null)";
-		while (*rot_number)
-			_putchar(*rot_number++);
-		return (6);
-	}
 
 	for (i = 0; rot_number[i]; i++)
 	{
@@ -36,8 +31,9 @@ int _get_rot13(va_list args)
 		if (number_find == 0)
 		{
 			_putchar(rot_number[i]);
-			lenght++, number_find = 0;
+			lenght++;
 		}
+		number_find = 0;
 	}
 
 	return (lenght);
