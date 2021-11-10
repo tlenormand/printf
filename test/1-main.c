@@ -144,8 +144,6 @@ int main(void)
     printf("c'est%-12dça\n", 1);
     printf("c'est%-12dça\n", -1);*/
 
-    _printf("Unknown:[%r]\n");
-
 
 
 
@@ -201,8 +199,6 @@ int main(void)
 	len2 = printf("Percent:[%%]\n");
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
-	_printf("Unknown:[%r]\n");
-	/**printf("Unknown:[%r]\n");*/
 
 /*test the binary %b*/
     len = _printf("%b\n", 98);
@@ -288,6 +284,13 @@ int main(void)
     len = _printf("Address:[%p]\n", addr);
     _printf("len : %d\n", len);
     printf("len2 : %d\n", len2);
+
+/*test %r*/
+    _printf("le reverse : %r\n", "bonjour");
+    len = _printf("le reverse : %r\n", "bonjour");
+    _printf("len : %d\n", len);
+    len = _printf("le reverse : %r\n", (char *)0);
+    _printf("len : %d\n", len);
 
     return (0);
 }

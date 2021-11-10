@@ -40,6 +40,7 @@ int _get_unsigned_hexadecimal_lowercase(va_list args);
 int _get_unsigned_hexadecimal_uppercase(va_list args);
 int _get_string_conversion(va_list args);
 int _get_pointer(va_list args);
+int _get_reverse(va_list args);
 
 	/*print function*/
 int _print_integer(int d);
