@@ -271,10 +271,12 @@ int main(void)
     printf("len : %d\n", len2);
 
 /*test the %x*/
-    len = _printf("%S\n", "Best\nSchool");
+    len = _printf("%S\n", "(c");
     _printf("len : %d\n", len);
     _printf("%S\n", "Best'2'School\2\3\1\6\4\4\4\14\30\31\32\33\34\35\36\55");
     _printf("%S\n", "Be\6st Sc\1hool");
+    len = _printf("%S\n", (char *)0);
+    _printf("len : %d\n", len);
 
     return (0);
 }
