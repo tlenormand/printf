@@ -9,5 +9,10 @@
 
 int _get_string_conversion(va_list args)
 {
-	return (_print_string_conversion(va_arg(args, char *)));
+	char *s = va_arg(args, char *);
+
+	if (s == 0)
+		s = "(null)";
+
+	return (_print_string_conversion(s));
 }
