@@ -235,7 +235,8 @@ int main(void)
     str = "vtbh;v!jkj!:*;,^$r4656g'thçé_oi&éz\n";
     len = _printf("bonjour%");
     _printf("len : %d\n", len);
-
+    len = _printf("");
+    _printf("len : %d\n", len);
 
 
     return (0);
