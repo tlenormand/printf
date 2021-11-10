@@ -1,0 +1,178 @@
+.TH printf 1 09/11/2021
+.SH NAME
+printf \- print a string of characters
+.SH SYNPOSIS
+#include <stdio.h>
+
+int printf(const char *format,...)
+
+.SH DESCRIPTION
+the functions of the family printf produces output with the format explained below.The function printf() write his output in stdout(the standart output flow).
+This function also create his output in control of a format chain which indicate the conversions to give to the next arguments(or accesible through the arguments of variable size of stdarg)
+
+.SH RETURN VALUE
+if it succeed,this function return the number of printed characters,without the final nul octet (\0) in the strings.If the output has been truncated due to the limit, the return value is the number of characters (without the (\0)) which wouls have been printed if there was enough space.And so,a return value size or more mean than the output has been truncated.If an output error has been made,a negative value is returned.
+
+.B format chain
+the conversion format is indicated by a string of characters, starting and finishing in his state of initial offset.The format chain is composed of indicators: the ordinary characters (differents of %),which are copied without modification on the output, and the specifications of conversion, which are put in correspondance with the next arguments.The specifications of conversion are introduced by the character %, and are finished by a conversion indicator.Between them can be found(in the order),zero or multiple attributs,one optionnal value of minimal width of field, one optionnal value of accuracy,and a possible length modifier.
+
+the arguments must correctly correspond (after the types promotions) with the conversion indicators.By default the arguments are taken into a indicated order,where every "*" and every conversion indicator claim a new argument(and where the lack of arguments is a mistake). We can also explicitely precise which argument take,with writing,at every conversion,"%m$" instead of "%", and "*m$" instead of "*". the decimal integer m indicate the position in the argument list, the indexation starting at 1. And so,
+
+printf("%*d", width, num);
+
+and
+
+printf("%2$*1£d", width, num);
+
+are the same. the second notation allow to repeat multiple times the same argument.The standart C99 don\'t authorize the style using "$",qui come from the Specifications Single Unix. If the style with "$" is used,it must be used for every conversion using an argument, and for all the arguments of width and accuracy,but we can mix it with some formats "%%" which doesn\'t use any arguments. It must not have any jumps in the numbers of the specified arguments with "$".For example, if the arguments 1 and 3 are speecified,the argument 2 has to be mentionned somewhere else in the format string.
+
+For some numeric conversions, a character of decimal separation (the default point) is used,along with a regrouping thousand character. The true characters are tied to the localisation LC_NUMERIC. The localisation POSIX use "." for decimal separator,and doesn\'t have any regrouping character. And so,
+
+printf("%aq.2f", 1234567.89);
+
+will be printed like "1234567.89" in the POSIX localisation, "1 234 567 ,89" in the fr_FR localisation,and "1.234.567 ,89" in the da_DK localisation.
+
+.B attribut character
+
+The character % can be eventually followed by one or multiple of the following attributs:
+
+#:
+indicate than the value must be conveted into an another form. For the conversion o,the first character of the output string will be zero (adding a prefix 0 if it is not already a 0).For the conversions x and X,a non null value receive the prefix "0x"(or "0X for the indicator X). For the conversions a,A,e,E,f,F,g and G,the result will always have a decimal point even if no number follow him(normally, a decimal point is present with those conversions only if decimals follow him).For the conversions g and G the zeros in head are not eliminated,unlike the usual behavior. For the other conversions,this attribute has no effect.
+
+0:
+indicate the filling with zeros.For the conversions d,i,o,u,x,X,a,A,e,E,f,F,g and G,the value is completed at the left with zeros rather than spaces.If the attributs 0 and - appears together, the attribute 0 is ignored.If a precision is given with a numeric conversion(d,i,o,u,x and X),the attribute 0 is ignored.For the others conversions,the behavior is unliimited.
+
+-:
+indicate than the value must be justified on the left limit of the field(at the right by default).Except for the conversion n,the values are completed at the right byspaces,rather than the left by zeros or blanks.An attribut - overload if both of them are given.
+
+aqaq:
+(one space):indicate than a space must be left before a positive number (or an empty string) produced by an signed conversion.
+
++:
+A sign (+ or -) must always be printed before a number produced by a signed conversion.By default,a sign is only used for negative values. An attribute + overload an "space" attribute if both are given.
+
+The five attribute characters above are defined in the C standard, the specifications SUSv2 adds one:
+aq:
+For the decimal conversions (i,d,u,f,F,g,G) indicate than the numbers of an numeric argument must be packed by thousand depending of the localisation.Notice than numerous verrsions of gcc don\'t accept this attribute and will trigger a warning.SUSv2 don\'t include %aqF.
+
+The glibc 2.2 add an additionnal attribute character
+I:
+For the decimal conversions (i,d,u),the output use the alternate localisation numbers if given.For instance,since the glibc 2.2.3, this will give arabic numbers for the persean localisation ("fa_IR").
+
+.B field length
+
+An optionnal number which doesn\'t start by a zero,can indicate a minimal field width.If the converted value occupies less characters tha this width, she will be completed by spaces at the left (or right if the left alignment attribute has been given).Instead of the string representing the decimal number,we can write "*" or "m$" (m being an integer) to indicate than the field width is given in the next argument, or in the m-th argument,respectively.The argument giving the width must be an int type. A negative width is considered like the attribute "-" saw above followed by a positive value.Under no circumstances a width too small bring the truncature of the field. If the conversion result is greater than the indicated width, the field is enlarged to contain the result.
+
+.B accuracy
+
+An possible accuracy, under the form of a point (".") followed by a number.At the place of the string representing the decimal number, we can write "*" or "*m$" (m being an iinteger) to indicate than the precision is given into the next argument, or in the m-th argument,respectively.The argument giving the accuracy must be a type int. if the precision contain only the character "." or a negative value,she is considered null.This accuracy indicate a minimal number of numbers to make appear in the conversions d,i,o,u,x and X,the number of decimals to make appear for the conversions a,A,e,E,f and F,the maximal number of significative numbers for g and G,and the maximum number of string characters to print for the conversions s and S.
+
+.B length modification
+
+Here,an entire conversion correspond to d,i,o,u,x and X.
+
+hh:
+The next entire conversion correspond to a signed or unsigned char, or the next n conversion correspond to a pointer argument on a signed char.
+
+h:
+The next entire conversion correspond to a short int or an unsigned short int,or the next n conversion correspond to a pointer argument on a short int.
+
+I:
+(she) The next entire conversion correspond to a long int or an unsigned long int, or the next n conversion correspond to a pointer on a long int, or the next c conversion correspond to an argument wint_t, or the next s conversion correspond to a pointer on a wchar_t.
+
+II:
+(she-she) The next entire conversion correspond to a long long int, or an unsigned long long int, or the next n conversion correspond to a pointer on a long long int.
+
+L:
+The next conversion a,A,e,E,f,F,g or G correspond to an long double argument.(C99 authorize %LF but not SUSv2).
+
+q:
+("quad" BSD 4.4 and Linux on lib5 only,do not use)It is a synonym for II.
+
+j:
+The next entire conversion correspond to an intmax_t or unintmax_t argument.
+
+z:
+The next entire conversion correspond to a size_t or ssize_t.(the library libc5 of Linux proposed the Z argument for that,do not use).
+
+t:
+The next entire conversion correspond to a ptrdiff_t argument.
+
+The specifications SUSv2 mention only the modifiers of length h (in hd,hi,ho,hx,hX,hn),l (in ld,li,lo,lx,lX,ln,lc,ls) and L (in Le,LE,Lf,Lg,LG).
+
+.B conversion indicator
+
+A character indicate only the type of conversion to give. The conversion indicators,and their meaning are:
+
+d,i:
+The int argument is converted in a signed decimal number.The accuracy,if it is mentionned,correspond to the minimal number of numbers which must appear.If the conversion give less numbers, the result is filled with zeros in the left.By default the accuracy have a value of 1.When 0 is converted with an accuracy worth 0,the output is empty.
+
+o,u,x,X:
+The argument unsigned int is converted into a unsigned octal number(o),a unsigned decimal number (u), an hexadecimal unsigned number (x and X). the letters abcdef are used for the conversions with x,the letters ABCDEF are used for the conversions with X.The accuracy,if indicated,give a minimal number of numbers to make appear.If the converted value need less numbers,she is completed at the left by zeros.The default value of the accuracy is 1.When 0 is converted with an accuracy of 0,the output is empty.
+
+c:
+if there is no I modifier, the entire argument,of int type,is converted into an unsignedd char, and the matching character is printed.If a modifier I is here, the argument of type wint_t (large character) is converted in multi-octets segments by a call to wcrtomb,with a state of conversion beginning in the initial state.The resultant multi-octet chain is printed.
+
+s:
+If there is no modifier I,the argument of type const char* is supposed to be a pointer on an array of character(pointer on string).The character's array are printed until the final null octet \0 excluded.If a precision is indicated,only this number of character are printed.If a precision is given,there is no need of a null octet.If the accuracy is not given or if it is superior to the length of the string, the final null octet is mandatory.
+
+If a modifier I is here,the argument of type const wchar_t* is supposed to be a pointer on a array of large characters.Those large characters are converted into a sequence of multi-octets(each by a cal of wcrtomb) with a state of conversion in the initial state before the first large character),this until the final null large character included.The multi-octets characters resulting are printed until the final null octet excluded.If an accuracy is given,there is no more octet printedd than the given accuracy,but no multi-octet character is partially written.Notice than the accuracy appies to the number of octets printed,and not to the number of large characters or screen positionning.The string must contain one final null large character,except if an accuracy is given,small enough for the number of printed octets fill it before the end of the task
+
+C:
+(In SUSv2 but not in C99) Synonymn of lC.Do not use.
+
+S:
+(in SUSV2 but not in C99) Synonymn of ls.Do not use.
+
+p:
+The pointer argument, of type void* is printed in hexadecimal,like %#x ou %#lx.
+
+n:
+the number of character already printed is stocked into the indicated integer by the pointer argument of int type*.No argument is converted.
+
+m:
+(Extension glibc.)Show the output of strerror(errno). No argument is mandatory.
+
+%:
+character "%" is printed.There is no conversion.The full indicator is "%%".
+
+.SH OPTIONS
+
+c:
+prints a character.
+
+S:
+prints a string.
+
+d,i:
+prints an integer.
+
+b:
+prints a binary number.
+
+%:
+print the character %.
+
+o:
+print an octal.
+
+u:
+print an unsigned decimal integer number.
+
+x:
+print an unsigned hexadecimal character in lowercase.
+
+X:
+print an unsigned hexadecimal character in uppercase.
+
+S:
+convert a string.
+
+p:
+print a pointer from a character.
+
+.SH CONFORMING TO
+The function is conforming to C89 and C99.
+
+.SH BUGS
+A code like printf(foo); often indicate a bug,because foo can contain a character "%".If foo comes of a unsafe input,it can contain "%n",which authorize printf() to write into the memery,thus creating security leaks.
