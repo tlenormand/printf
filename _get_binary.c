@@ -9,13 +9,14 @@
 
 int _get_binary(va_list args)
 {
-	int lenght = 0;
 	unsigned int b = va_arg(args, int);
 
 	if (b != 0)
-		_print_binary(b);
+	{
+		return (_print_binary(b));
+	}
 	else
-		_putchar('0'), lenght++;
+		_putchar('0');
 
-	return (lenght);
+	return (1);
 }

@@ -8,13 +8,14 @@
 
 int _get_unsigned_hexadecimal_lowercase(va_list args)
 {
-	int lenght = 0;
 	unsigned int x = va_arg(args, unsigned int);
 
 	if (x != 0)
-		_print_unsigned_hexadecimal_lowercase(x);
+	{
+		return (_print_unsigned_hexadecimal_lowercase(x));
+	}
 	else
-		_putchar('0'), lenght++;
+		_putchar('0');
 
-	return (lenght);
+	return (1);
 }
