@@ -11,6 +11,8 @@ int _get_string(va_list args)
 	int lenght = 0;
 	char *str = va_arg(args, char *);
 
+	if (str == 0)
+		str = "(null)";
 	while (*str)
 		_putchar(*str++), lenght++;
 

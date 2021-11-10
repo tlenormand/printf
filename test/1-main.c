@@ -171,17 +171,48 @@ int main(void)
     printf("%i\n", len2);
     _printf("%i, %d\n", -d, -d);
     printf("%i, %d\n", -d, -d);
-    _printf("Length:[%d, %i]\n", INT_MAX, INT_MAX );
-    printf("Length:[%d, %i]\n", INT_MAX, INT_MAX );
-    _printf("Length:[%d, %i]\n", INT_MIN, INT_MIN);
-    printf("Length:[%d, %i]\n", INT_MIN, INT_MIN);
-    _printf("Length:[%d, %i]\n", -348, -348);
-    printf("Length:[%d, %i]\n", -348, -348);
+    _printf("int:[%d, %i]\n", INT_MAX, INT_MAX );
+    printf("int:[%d, %i]\n", INT_MAX, INT_MAX );
+    _printf("int:[%d, %i]\n", INT_MIN, INT_MIN);
+    printf("int:[%d, %i]\n", INT_MIN, INT_MIN);
+    _printf("int:[%d, %i]\n", -348, -348);
+    printf("int:[%d, %i]\n", -348, -348);
     len = printf("Length:[%d, %i]\n", INT_MIN, INT_MIN);
     _printf("Length:[%d, %i]\n", len, len);
     printf("Length:[%d, %i]\n", len, len);
-    _printf("Length:[%d, %i]\n", -1, -34);
-    printf("Length:[%d, %i]\n", -1, -34);
+    _printf("int:[%d, %i]\n", -1, -34);
+    printf("int:[%d, %i]\n", -1, -34);
+
+
+
+
+
+
+	_printf("Length:[%d, %i]\n", len, len);
+	printf("Length:[%d, %i]\n", len2, len2);
+	_printf("Negative:[%d]\n", -762534);
+	printf("Negative:[%d]\n", -762534);
+	_printf("Unsigned:[%u]\n", ui);
+	printf("Unsigned:[%u]\n", ui);
+	_printf("Unsigned octal:[%o]\n", ui);
+	printf("Unsigned octal:[%o]\n", ui);
+	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+	_printf("Character:[%c]\n", 'H');
+	printf("Character:[%c]\n", 'H');
+    printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	_printf("%b\n", 98);
+	_printf("String:[%s]\n", "I am a string !");
+	printf("String:[%s]\n", "I am a string !");
+	_printf("Address:[%p]\n", addr);
+	printf("Address:[%p]\n", addr);
+	len = _printf("Percent:[%%]\n");
+	len2 = printf("Percent:[%%]\n");
+	_printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);
+	_printf("Unknown:[%r]\n");
+	/**printf("Unknown:[%r]\n");*/
 
 
 
