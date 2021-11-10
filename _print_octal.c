@@ -12,9 +12,8 @@ int _print_octal(unsigned int o)
 
 	if (o)
 	{
-		lenght++;
-		_print_octal(o / 8);
-		_putchar(o % 8 + '0');
+		lenght = _print_octal(o / 8);
+		_putchar(o % 8 + '0'), lenght++;
 	}
 
 	return (lenght);
