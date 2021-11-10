@@ -261,6 +261,14 @@ int main(void)
     len2 = printf("Unsigned hexadecimal:[%x, %X]\n", "", "123");
     _printf("len : %d\n", len);
     printf("len : %d\n", len2);
+    len = _printf("Unsigned:[%u]\n", "123");
+    len2 = printf("Unsigned:[%u]\n", "123");
+    _printf("len : %d\n", len);
+    printf("len : %d\n", len2);
+    len = _printf("Unsigned octal:[%o]\n", "123");
+    len2 = printf("Unsigned octal:[%o]\n","123");
+    _printf("len : %d\n", len);
+    printf("len : %d\n", len2);
 
 
 
