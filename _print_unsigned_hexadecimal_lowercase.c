@@ -12,7 +12,7 @@ int _print_unsigned_hexadecimal_lowercase(unsigned int x)
 
 	if (x)
 	{
-		_print_unsigned_hexadecimal_lowercase(x / 16);
+		lenght = _print_unsigned_hexadecimal_lowercase(x / 16);
 		if (x % 16 < 10)
 			_putchar('0' + x % 16), lenght++;
 		else

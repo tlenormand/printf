@@ -237,6 +237,31 @@ int main(void)
     _printf("len : %d\n", len);
     len = _printf("");
     _printf("len : %d\n", len);
+    len = printf("");
+    _printf("%d\n",len);
+    printf("%d\n",len);
+
+
+/*test the unsigned hexadecimal %x*/
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 345678, 345678);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 345678, 345678);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 98765456, 98765456);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 98765456, 98765456);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 2147483646, 2147483646);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 2147483646, 2147483646);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 0, 0);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 0, 0);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 1, 1);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 1, 1);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", -1, -1);
+    printf("Unsigned hexadecimal:[%x, %X]\n", -1, -1);
+    len = _printf("Unsigned hexadecimal:[%x, %X]\n", "", "123");
+    len2 = printf("Unsigned hexadecimal:[%x, %X]\n", "", "123");
+    _printf("len : %d\n", len);
+    printf("len : %d\n", len2);
+
 
 
     return (0);
