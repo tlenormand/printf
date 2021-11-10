@@ -297,6 +297,12 @@ int main(void)
     _printf("len : %d\n", len);
     len = _printf("le rot13 : %R\n", (char *)0);
     _printf("len : %d\n", len);
+    len = _printf("le rot13 : %R\n", "1ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+    _printf("len : %d\n", len);
+
+
+
+
 
     return (0);
 }
