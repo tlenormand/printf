@@ -27,7 +27,7 @@ int (*search_format_of_char(const char *format))(va_list)
 	};
 	int i = 0;
 
-	for (;format_of_char[i].type != NULL; i++)
+	for (; format_of_char[i].type != NULL; i++)
 		if (format_of_char[i].type[0] == *format)
 			return (format_of_char[i].f);
 	return (0);
@@ -47,7 +47,7 @@ int _printf(const char * const format, ...)
 
 	va_start(args, format);
 
-	for (;format && format[i]; i++)
+	for (; format && format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
