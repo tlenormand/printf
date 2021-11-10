@@ -9,13 +9,12 @@
 
 int _get_octal(va_list args)
 {
-	int lenght = 0;
 	unsigned int o = va_arg(args, unsigned int);
 
 	if (o != 0)
-		_print_octal(o);
+		return (_print_octal(o));
 	else
-		_putchar('0'), lenght++;
+		_putchar('0');
 
-	return (lenght);
+	return (1);
 }

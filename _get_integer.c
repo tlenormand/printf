@@ -8,7 +8,5 @@
 
 int _get_integer(va_list args)
 {
-	_print_integer(va_arg(args, int));
-
-	return (0);
+	return (_print_integer(va_arg(args, int)));
 }
