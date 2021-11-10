@@ -205,15 +205,27 @@ int main(void)
 	/**printf("Unknown:[%r]\n");*/
 
 /*test the binary %b*/
-    _printf("%b\n", 98);
-    _printf("%b\n", 2147483646);
-    _printf("%b\n", 4294967295);
-    _printf("%b\n", 0);
+    len = _printf("%b\n", 98);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n\n", 98);
+    len = _printf("%b\n", INT_MAX);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n\n", INT_MAX);
+    len = _printf("%b\n", INT_MIN);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n\n", INT_MIN);
+    len = _printf("%b\n", 0);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n\n", 0);
     _printf("%b\n", 1);
     _printf("%b\n", 100);
     _printf("%b\n", 2);
-    _printf("%b\n", -1);
-
+    len = _printf("%b\n", -6);
+    printf("len : %d\n", len);
 
     return (0);
 }

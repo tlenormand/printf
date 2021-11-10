@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <limits.h>
+#include <stdlib.h>
 
 /**
  * struct search_type - struct format
