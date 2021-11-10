@@ -12,7 +12,7 @@ int _print_string_conversion(char *s)
 
 	while (*s)
 	{
-		if (*s > 31)
+		if (*s > 31 && *s < 127)
 			_putchar(*s++), lenght++;
 		else
 		{
