@@ -9,7 +9,5 @@
 
 int _get_string_conversion(va_list args)
 {
-	_print_string_conversion(va_arg(args, char *));
-
-	return (0);
+	return (_print_string_conversion(va_arg(args, char *)));
 }

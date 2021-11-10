@@ -55,16 +55,6 @@ int main(void)
     _printf("%i, %d\n", -d, -d);
     printf("%i, %d\n", -d, -d);
 
-/*test the binary %b*/
-    _printf("%b\n", 98);
-    _printf("%b\n", 2147483646);
-    _printf("%b\n", 4294967295);
-    _printf("%b\n", 0);
-    _printf("%b\n", 1);
-    _printf("%b\n", 100);
-    _printf("%b\n", 2);
-    _printf("%b\n", -1);
-
 /*test the percent %%*/
     _printf("bonjour%%tout%%le%%monde%%\n");
     printf("bonjour%%tout%%le%%monde%%\n");
@@ -214,7 +204,15 @@ int main(void)
 	_printf("Unknown:[%r]\n");
 	/**printf("Unknown:[%r]\n");*/
 
-
+/*test the binary %b*/
+    _printf("%b\n", 98);
+    _printf("%b\n", 2147483646);
+    _printf("%b\n", 4294967295);
+    _printf("%b\n", 0);
+    _printf("%b\n", 1);
+    _printf("%b\n", 100);
+    _printf("%b\n", 2);
+    _printf("%b\n", -1);
 
 
     return (0);

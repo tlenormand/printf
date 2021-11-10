@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 
-
 /**
  * search_format_of_char - *function check if format exist, return the function
  * @format: charactere to check
@@ -30,7 +29,8 @@ int (*search_format_of_char(const char *format))(va_list)
 	for (; format_of_char[i].type != NULL; i++)
 		if (format_of_char[i].type[0] == *format)
 			return (format_of_char[i].f);
-	return (0);
+
+	return (NULL);
 }
 
 /**

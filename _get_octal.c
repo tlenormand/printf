@@ -12,7 +12,9 @@ int _get_octal(va_list args)
 	unsigned int o = va_arg(args, unsigned int);
 
 	if (o != 0)
+	{
 		return (_print_octal(o));
+	}
 	else
 		_putchar('0');
 
