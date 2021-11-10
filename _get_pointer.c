@@ -14,6 +14,19 @@ int _get_pointer(va_list args)
 	intptr_t x = (intptr_t)p;
 	char buf[2 + sizeof(x) * 2];
 	size_t i;
+	int j = 0;
+	char *str = NULL;
+
+	if (p == 0)
+	{
+		str = "(nil)";
+		for (j = 0; str[j]; j++)
+		{
+			_putchar(str[j]);
+			lenght++;
+		}
+		return(lenght);
+	}
 
 	buf[0] = '0';
 	buf[1] = 'x';
