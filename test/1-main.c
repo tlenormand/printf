@@ -292,5 +292,11 @@ int main(void)
     len = _printf("le reverse : %r\n", (char *)0);
     _printf("len : %d\n", len);
 
+/*test %R*/
+    len = _printf("le rot13 : %R\n", "bonjour");
+    _printf("len : %d\n", len);
+    len = _printf("le rot13 : %R\n", (char *)0);
+    _printf("len : %d\n", len);
+
     return (0);
 }
