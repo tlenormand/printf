@@ -21,7 +21,7 @@ int _print_string_conversion(char *s)
 			_putchar(120), lenght++;
 			if (*s < 17)
 				_putchar('0'), lenght++;
-			_print_unsigned_hexadecimal_uppercase(*s++);
+			lenght += _print_unsigned_hexadecimal_uppercase(*s++);
 		}
 	}
 
