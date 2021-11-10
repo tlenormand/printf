@@ -53,6 +53,8 @@ int _printf(const char * const format, ...)
 		{
 			if (format[i + 1] == '%')
 				_putchar(37), i++, lenght++;
+			else if (format[i + 1] == '\0')
+				return (-1);
 			else
 			{
 				i++;
