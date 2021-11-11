@@ -200,28 +200,7 @@ int main(void)
 	_printf("Len:[%d]\n", len);
 	printf("Len:[%d]\n", len2);
 
-/*test the binary %b*/
-    len = _printf("%b\n", 98);
-    printf("len : %d\n", len);
-    _printf("len : %d\n", len);
-    _printf("%b\n\n", 98);
-    len = _printf("%b\n", INT_MAX);
-    printf("len : %d\n", len);
-    _printf("len : %d\n", len);
-    _printf("%b\n\n", INT_MAX);
-    len = _printf("%b\n", INT_MIN);
-    printf("len : %d\n", len);
-    _printf("len : %d\n", len);
-    _printf("%b\n\n", INT_MIN);
-    len = _printf("%b\n", 0);
-    printf("len : %d\n", len);
-    _printf("len : %d\n", len);
-    _printf("%b\n\n", 0);
-    _printf("%b\n", 1);
-    _printf("%b\n", 100);
-    _printf("%b\n", 2);
-    len = _printf("%b\n", -6);
-    printf("len : %d\n", len);
+
 
 
 /*test the string %s*/
@@ -325,9 +304,55 @@ int main(void)
     len = _printf("%b\n", -6);
     printf("len : %d\n", len);
     len = _printf("%b\n", INT_MIN);
-    printf("len : %+7d\n", len);
+    _printf("len : %+7d\n", len);
 
-    _printf("%dbonjour", 12);
+    len = printf("bonjour%\n");
+    printf("len : %c\n", len);
+    len = _printf("bonjour%\n");
+    _printf("len : %c\n", len);
+
+    len = printf("bonjour%");
+    printf("len : %c\n", len + '0');
+    len = _printf("bonjour%");
+    _printf("len : %c\n", len + '0');
+
+/*    len = printf("");
+    printf("len : %s\n", len + '0');
+    len = _printf("");
+    _printf("len : %s\n", len + '0');
+
+    printf("%c", "");
+    _printf("%c", "");
+
+    len = printf("%");
+    printf("len : %d\n", len);
+    len = _printf("%");
+    _printf("len : %d\n", len);*/
+
+
+/*test the binary %b*/
+    len = _printf("%b\n", 98);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n\n", 98);
+    len = _printf("%b\n", INT_MAX);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n\n", INT_MAX);
+    len = _printf("%b\n", INT_MIN);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n\n", INT_MIN);
+    len = _printf("%b\n", 0);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n\n", 0);
+    _printf("%b\n", 1);
+    _printf("%b\n", 100);
+    _printf("%b\n", 2);
+    len = _printf("%b\n", -6);
+    printf("len : %d\n", len);
+
 
     return (0);
 }

@@ -17,6 +17,11 @@ int _get_binary(va_list args)
 		return (_putchar('0'), 1);
 
 	str_binary = malloc(sizeof(char) * 32);
+	if (str_binary == NULL)
+	{
+		free(str_binary);
+		return (0);
+	}
 
 	for (i = 0; b != 0; i++)
 	{
