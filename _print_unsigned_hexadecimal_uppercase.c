@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _print_unsigned_hexadecimal_uppercase - print unsigned hexadecimal given

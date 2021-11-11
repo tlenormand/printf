@@ -13,6 +13,7 @@ int _get_string(va_list args)
 
 	if (str == 0)
 		str = "(null)";
+
 	while (*str)
 		_putchar(*str++), lenght++;
 

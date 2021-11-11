@@ -48,14 +48,18 @@ int _printf(const char * const format, ...)
 	va_list args;
 
 	va_start(args, format);
-	if (!format)
+
+	if (format == NULL)
 		return (-1);
-	for (; format && format[i]; i++)
+
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '%')
+			{
 				_putchar(37), i++, lenght++;
+			}
 			else if (format[i + 1] == '\0')
 			{
 				return (-1);
@@ -72,7 +76,10 @@ int _printf(const char * const format, ...)
 		}
 		else
 			_putchar(format[i]), lenght++;
+		i++;
 	}
+
 	va_end(args);
+
 	return (lenght);
 }

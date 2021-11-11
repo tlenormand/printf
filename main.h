@@ -45,7 +45,6 @@ int _get_rot13(va_list args);
 
 	/*print function*/
 int _print_integer(int d);
-int _print_binary(unsigned int b);
 int _print_octal(unsigned int o);
 int _print_unsigned_integer(int d);
 int _print_unsigned_decimal_integer(unsigned int ui);
