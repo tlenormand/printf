@@ -354,5 +354,129 @@ int main(void)
     printf("len : %d\n", len);
 
 
+/* test %u*/
+    printf("\nUNSIGNED OCTAL HEXA\n");
+    ui = (unsigned int)INT_MAX + 1024;
+    _printf("Unsigned:[%u]\n", ui);
+    printf("Unsigned:[%u]\n", ui);
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    len = _printf("Unsigned:[%u]\n");
+    len2 = printf("Unsigned:[%u]\n");
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    len = _printf("Unsigned octal:[%o]\n");
+    len2 = printf("Unsigned octal:[%o]\n");
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    len = _printf("Unsigned hexadecimal:[%x, %X]\n");
+    len2 = printf("Unsigned hexadecimal:[%x, %X]\n");
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+
+/*test the unsigned hexadecimal %x*/
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 345678, 345678);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 345678, 345678);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 98765456, 98765456);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 98765456, 98765456);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 2147483646, 2147483646);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 2147483646, 2147483646);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 0, 0);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 0, 0);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", 1, 1);
+    printf("Unsigned hexadecimal:[%x, %X]\n", 1, 1);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", -1, -1);
+    printf("Unsigned hexadecimal:[%x, %X]\n", -1, -1);
+    len = _printf("Unsigned hexadecimal:[%x, %X]\n", "", "123");
+    len2 = printf("Unsigned hexadecimal:[%x, %X]\n", "", "123");
+    _printf("len : %d\n", len);
+    printf("len : %d\n", len2);
+
+
+/*test the unsigned decimal integer %u*/
+    _printf("Unsigned:[%u]\n", ui);
+    printf("Unsigned:[%u]\n", ui);
+    _printf("Unsigned:[%u]\n", 345678);
+    printf("Unsigned:[%u]\n", 345678);
+    _printf("Unsigned:[%u]\n", 98765456);
+    printf("Unsigned:[%u]\n", 98765456);
+    _printf("Unsigned:[%u]\n", 2147483646);
+    printf("Unsigned:[%u]\n", 2147483646);
+    _printf("Unsigned:[%u]\n", 0);
+    printf("Unsigned:[%u]\n", 0);
+    _printf("Unsigned:[%u]\n", 1);
+    printf("Unsigned:[%u]\n", 1);
+    _printf("Unsigned:[%u]\n", -1);
+    printf("Unsigned:[%u]\n", -1);
+    _printf("Unsigned:[%u]\n", -2147483646);
+    printf("Unsigned:[%u]\n", -2147483646);
+
+    len = _printf("Unsigned:[%u]\n", 2147483646);
+    printf("len : %d\n", len);
+    len = printf("Unsigned:[%u]\n", 2147483646);
+    _printf("len : %d\n", len);
+
+    len = _printf("Unsigned:[%u]\n", 0);
+    printf("len : %d\n", len);
+    len = printf("Unsigned:[%u]\n", 0);
+    _printf("len : %d\n", len);
+
+    len = _printf("Unsigned:[%u]\n", -2147483646);
+    printf("len : %d\n", len);
+    len = printf("Unsigned:[%u]\n", -2147483646);
+    _printf("len : %d\n", len);
+
+/*test the octal %o*/
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned octal:[%o]\n", 345678);
+    printf("Unsigned octal:[%o]\n", 345678);
+    _printf("Unsigned octal:[%o]\n", 98765456);
+    printf("Unsigned octal:[%o]\n", 98765456);
+    _printf("Unsigned octal:[%o]\n", 2147483646);
+    printf("Unsigned octal:[%o]\n", 2147483646);
+    _printf("Unsigned octal:[%o]\n", 0);
+    printf("Unsigned octal:[%o]\n", 0);
+    _printf("Unsigned octal:[%o]\n", 1);
+    printf("Unsigned octal:[%o]\n", 1);
+
+    len = printf("Unsigned octal:[%o]\n", 0);
+    printf("len : %d\n", len);
+    len = _printf("Unsigned octal:[%o]\n", 0);
+    _printf("len : %d\n", len);
+
+    len = _printf("Unsigned octal:[%o]\n", 1);
+    printf("len : %d\n", len);
+    len = printf("Unsigned octal:[%o]\n", 1);
+    _printf("len : %d\n", len);
+
+    len = _printf("Unsigned octal:[%o]\n", 2147483646);
+    printf("len : %d\n", len);
+    len = printf("Unsigned octal:[%o]\n", 2147483646);
+    _printf("len : %d\n", len);
+
+    /*test the address %p*/
+    len = _printf("Address:[%p]\n", addr);
+    printf("len : %d\n", len);
+    len = printf("Address:[%p]\n", addr);
+    _printf("len : %d\n", len);
+
+    addr = (void *)0x11104ffe637542f0;
+    len = _printf("Address:[%p]\n", addr);
+    printf("len : %d\n", len);
+    len = printf("Address:[%p]\n", addr);
+    _printf("len : %d\n", len);
+
+    addr = (void *)0x0000000fe001a;
+    _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
+    addr = (void *)0x1000000142f0;
+    _printf("Address:[%p]\n", addr);
+    printf("Address:[%p]\n", addr);
+
     return (0);
 }
