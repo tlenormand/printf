@@ -52,7 +52,7 @@ int _printf(const char * const format, ...)
 	if (format == NULL)
 		return (-1);
 
-	while (format[i])
+	for (; format[i]; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -76,7 +76,6 @@ int _printf(const char * const format, ...)
 		}
 		else
 			_putchar(format[i]), lenght++;
-		i++;
 	}
 
 	va_end(args);
