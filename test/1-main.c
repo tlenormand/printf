@@ -302,7 +302,32 @@ int main(void)
 
 
 
+/*test the binary %b*/
+    len = _printf("%b\n", 98);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n", 98);
+    len = _printf("%b\n", INT_MAX);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n", INT_MAX);
+    len = _printf("%b\n", INT_MIN);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n", INT_MIN);
+    len = _printf("%b\n", 0);
+    printf("len : %d\n", len);
+    _printf("len : %d\n", len);
+    _printf("%b\n", 0);
+    _printf("%b\n", 1);
+    _printf("%b\n", 100);
+    _printf("%b\n", 2);
+    len = _printf("%b\n", -6);
+    printf("len : %d\n", len);
+    len = _printf("%b\n", INT_MIN);
+    printf("len : %+7d\n", len);
 
+    _printf("%dbonjour", 12);
 
     return (0);
 }
