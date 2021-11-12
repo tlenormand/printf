@@ -8,7 +8,10 @@ _printf
 
 .BI "int _printf(const char *" format ", ...);"
 .SH DESCRIPTION
+.SS _printf
+.B Returns -1 on error
 
+.B Return length on success
 .SS The conversion specifier
 A character that specifies the type of conversion to be applied. The conversion specifiers and their meanings are:
 
