@@ -1,4 +1,4 @@
-.TH man 3 "12 November 2021" "0.1" "_printf man page"
+.TH man 3 "12 November 2021" "_printf man page"
 .SH NAME
 _printf
 - formatted output conversion (clone of libc's printf for Holberton School)
@@ -31,7 +31,6 @@ A character that specifies the type of conversion to be applied. The conversion 
 
 .B %
 	prints the ‘%’.
-
 
 .B o
 	print an integer in octal base.
